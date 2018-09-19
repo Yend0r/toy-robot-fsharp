@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ToyRobot", "ToyRobot.fsproj", "{CEAA73BD-BD4A-4B78-814C-8089F524630F}"
+EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "ToyRobot.Tests", "ToyRobot.Tests\ToyRobot.Tests.fsproj", "{82D724E1-35DB-42E6-A68F-146A35B1D1FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEAA73BD-BD4A-4B78-814C-8089F524630F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEAA73BD-BD4A-4B78-814C-8089F524630F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEAA73BD-BD4A-4B78-814C-8089F524630F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEAA73BD-BD4A-4B78-814C-8089F524630F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D724E1-35DB-42E6-A68F-146A35B1D1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82D724E1-35DB-42E6-A68F-146A35B1D1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82D724E1-35DB-42E6-A68F-146A35B1D1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82D724E1-35DB-42E6-A68F-146A35B1D1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
