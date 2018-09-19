@@ -1,5 +1,5 @@
 # toy-robot-fsharp
-Toy robot simulation challenge used as an interview test for a friend's company.
+Toy robot simulation challenge used as an interview test for a friend's company. I saw some submissions written in Elixir and Javascript and thought it looked like a fairly easy problem to do in F#. The logic for the robot was trivially easy and most of the time was spent parsing the command line input.
 
 The test is described as below:
 
