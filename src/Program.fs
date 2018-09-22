@@ -26,7 +26,7 @@ module App =
 
     let private handleCommand cmd robot = 
         let newRobot = RobotApi.handleCommand cmd robot
-        Console.WriteLine newRobot.Message
+        Console.WriteLine newRobot.LastAction
         newRobot
 
     let private handleExit() = 

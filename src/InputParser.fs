@@ -16,10 +16,10 @@ module InputParser =
 
     let private parseDirection (directionString : string) : Result<Direction, string> = 
         match directionString.Trim().ToUpper() with
-        | "NORTH" -> Ok North
-        | "SOUTH" -> Ok South
-        | "WEST"  -> Ok West
-        | "EAST"  -> Ok East
+        | "NORTH" -> Ok Direction.North
+        | "SOUTH" -> Ok Direction.South
+        | "WEST"  -> Ok Direction.West
+        | "EAST"  -> Ok Direction.East
         | _       -> Error "Invalid placement direction"
 
     let private parsePlace (input : string) = 

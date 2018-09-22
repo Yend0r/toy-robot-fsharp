@@ -22,16 +22,16 @@ module RobotTests =
     [<Fact>]
     let ``Placing robot within grid should work`` () =
         createRobot()
-        |> place 2 3 West
+        |> place 2 3 Direction.West
         |> report 
         |> should equal "(2,3) facing West"
 
     [<Fact>]
     let ``Placing robot outside of grid should be ignored`` () =
         createRobot()
-        |> place 2 3 West
-        |> place 8 0 East
-        |> place 8 0 South
+        |> place 2 3 Direction.West
+        |> place 8 0 Direction.East
+        |> place 8 0 Direction.South
         |> report 
         |> should equal "(2,3) facing West"
 
