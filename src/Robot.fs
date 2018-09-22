@@ -1,8 +1,5 @@
 ﻿namespace ToyRobot
 
-type X = X of int
-type Y = Y of int
-
 type Grid = {
     MaxX : int
     MaxY : int
@@ -14,8 +11,14 @@ type Direction =
     | South = 2
     | West = 3
 
+type RobotPosition = {
+    X : int
+    Y : int
+    Direction : Direction
+}
+
 type RobotCommand = 
-    | Place of int * int * Direction
+    | Place of RobotPosition
     | Move 
     | Left
     | Right
@@ -23,7 +26,7 @@ type RobotCommand =
 type Robot = {
     X : int
     Y : int
-    Direction: Direction
+    Direction : Direction
     LastAction : string
 }
 
@@ -75,9 +78,9 @@ module RobotApi =
         let newDirection = Compass.turnRight robot.Direction
         { robot with Direction = newDirection; LastAction = turnDescription newDirection }
 
-    let private placeRobot x y direction robot = 
-        if coordsAreValid x y then
-            let placedRobot = { X = x; Y = y; Direction = direction; LastAction = "" }
+    let private placeRobot (position : RobotPosition) robot = 
+        if coordsAreValid position.X position.Y then
+            let placedRobot = { X = position.X; Y = position.Y; Direction = position.Direction; LastAction = "" }
             { placedRobot with LastAction = sprintf "Placed at %s" (report placedRobot) }
         else
             { robot with LastAction = sprintf "Ignored place command as coords were invalid. Robot still at: %s" (report robot) }
@@ -87,4 +90,4 @@ module RobotApi =
         | Move -> moveRobot robot 
         | Left -> turnLeft robot
         | Right -> turnRight robot
-        | Place(x, y, direction) -> placeRobot x y direction robot
+        | Place position -> placeRobot position robot

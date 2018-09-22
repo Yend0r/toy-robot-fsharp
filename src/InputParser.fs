@@ -31,7 +31,7 @@ module InputParser =
 
             match (xResult, yResult, fResult) with
             | (Ok x, Ok y, Ok f) 
-                -> Command (Place(x, y, f))
+                -> Command (Place { X = x; Y = y; Direction = f })
             | (Error err, _, _) | (_, Error err, _) | (_, _, Error err) 
                 -> Failure err
         else

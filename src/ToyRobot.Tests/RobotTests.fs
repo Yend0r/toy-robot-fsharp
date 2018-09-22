@@ -11,7 +11,7 @@ module RobotTests =
     let move robot = RobotApi.handleCommand Move robot
     let right robot = RobotApi.handleCommand Right robot
     let left robot = RobotApi.handleCommand Left robot
-    let place x y direction robot = RobotApi.handleCommand (Place(x, y, direction)) robot
+    let place x y direction robot = RobotApi.handleCommand (Place { X = x; Y = y; Direction = direction }) robot
 
     [<Fact>]
     let ``Initial robot should be 0,0 facing North`` () =

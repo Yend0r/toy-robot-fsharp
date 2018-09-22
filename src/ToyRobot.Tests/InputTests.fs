@@ -61,12 +61,12 @@ module InputTests =
     [<Fact>]
     let ``Input = place 2, 3, west should parse as a Command`` () =
         InputParser.parse "place 2,3,west"
-        |> should equal (InputResult.Command(Place(2,3,Direction.West)))
+        |> should equal (InputResult.Command(Place { X = 2; Y = 3; Direction = Direction.West}))
 
     [<Fact>]
     let ``Place parsing should be case insensitive and ignore spaces`` () =
         InputParser.parse "    plAce 2,  3     ,   WEst    "
-        |> should equal (InputResult.Command(Place(2,3,Direction.West)))
+        |> should equal (InputResult.Command(Place { X = 2; Y = 3; Direction = Direction.West}))
 
     [<Fact>]
     let ``Invalid commands should not parse`` () =
