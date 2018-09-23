@@ -21,13 +21,20 @@ module App =
         showHelp()
         printfn "Enter a command:"
 
+    let report robot = RobotApi.report robot.Position
+
     let private handleReport robot = 
-        Console.WriteLine (RobotApi.report robot)
+        printfn "%s" (report robot)
 
     let private handleCommand cmd robot = 
-        let newRobot = RobotApi.handleCommand cmd robot
-        Console.WriteLine newRobot.LastAction
-        newRobot
+        let commandResult = RobotApi.handleCommand cmd robot
+        match commandResult with 
+        | CommandResult.Success newRobot -> 
+            printfn "Success: %s" (report newRobot)
+            newRobot //Return updated robot
+        | CommandResult.Failure cmdFailure -> 
+            printfn "Failed: %s" cmdFailure.Error
+            robot //Return original, unchanged robot
 
     let private handleExit() = 
         printfn "Exiting..."    
@@ -60,7 +67,7 @@ module App =
 
         let robot = RobotApi.init()
 
-        printfn "Robot starting at: %s" (RobotApi.report robot)
+        printfn "Robot starting at: %s" (report robot)
         printfn "Enter a command:"
 
         captureInput robot
